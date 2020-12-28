@@ -11,3 +11,12 @@ else{
 }
 
 
+#Installation of git
+$testgit = powershell git --version
+if(-not($testgit)){
+    Write-Output "Seems Git is not installed, installing now"
+    choco install git.install
+}
+else{
+    Write-Output "$testgit is already installed"
+}
