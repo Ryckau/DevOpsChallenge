@@ -1,8 +1,6 @@
 #DEVOPS CHALLENGE CAPGEMINI
 #TEAM : LOS ANEMOI
 
-#1. =================== TOOLS INSTALLATION ===============
-
 #Installation of chocolatey 
 $testchoco = powershell choco -v
 if(-not($testchoco)){
@@ -48,15 +46,3 @@ else{
 }
 #TODO : test installation OK
 #TODO Docker launch???
-
-
-#2. =================== CONTAINERS INSTALLATION ===============
-
-#Installation of Postgres and PGAdmin
-docker pull postgres
-docker pull dpage/pgadmin4
-docker network create --driver bridge pgnetwork
-docker run --name POSTGRES -e PG_MODE=primary -e PG_PRIMARY_USER=postgres -e PG_PRIMARY_PASSWORD=datalake -e PG_ROOT_PASSWORD=datalake --hostname="postgres" --network="pgnetwork" -p 5432:5432 -d postgres
-docker run --name PGADMIN4 -p 5431:80 -e 'PGADMIN_DEFAULT_EMAIL=user@domain.com' -e 'PGADMIN_DEFAULT_PASSWORD=SuperSecret' --hostname="pgadmin4" --network="pgnetwork" -d dpage/pgadmin4
-#Launch in browser : http://localhost:5431/, with user/pass : user@domain.com/SuperSecret
-#Connect new serveur with host=postgres user=posgres password=datalake 
