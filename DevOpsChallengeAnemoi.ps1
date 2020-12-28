@@ -9,6 +9,7 @@ if(-not($testchoco)){
 else{
     Write-Output "Chocolatey Version $testchoco is already installed"
 }
+#TODO : test installation OK
 
 
 #Installation of git
@@ -20,3 +21,15 @@ if(-not($testgit)){
 else{
     Write-Output "$testgit is already installed"
 }
+#TODO : test installation OK
+
+#Installation of Visual Studio Code
+$testvscode = powershell code --version
+if(-not($testvscode)){
+    Write-Output "Seems Visual Studio Code is not installed, installing now"
+    choco install vscode -y
+}
+else{
+    Write-Output "Visual Code version $testvscode is already installed"
+}
+#TODO : test installation OK
