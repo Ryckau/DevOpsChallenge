@@ -1,4 +1,5 @@
 #DEVOPS CHALLENGE CAPGEMINI
+#TEAM : LOS ANEMOI
 
 #Installation of chocolatey 
 $testchoco = powershell choco -v
@@ -31,5 +32,16 @@ if(-not($testvscode)){
 }
 else{
     Write-Output "Visual Code version $testvscode is already installed"
+}
+#TODO : test installation OK
+
+#Installation of Docker Desktop
+$testdocker = powershell "docker version --format '{{.Server.Version}}'"
+if(-not($testdocker)){
+    Write-Output "Seems Docker Desktop is not installed, installing now"
+    choco install docker-desktop
+}
+else{
+    Write-Output "Docker Desktop version $testdocker is already installed"
 }
 #TODO : test installation OK
