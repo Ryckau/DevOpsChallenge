@@ -25,6 +25,9 @@ java -jar jenkins-cli.jar -s http://localhost:8080/ -auth admin:$JENKINS_ADMIN_P
 java -jar jenkins-cli.jar -s http://localhost:8080/ -auth admin:$JENKINS_ADMIN_PASS restart
 ##Installing pipeline of MyThaiStar
 ###Downloading create-pipelines
-(New-Object System.Net.WebClient).DownloadFile('https://github.com/devonfw/my-thai-star/blob/develop/jenkins/create-pipelines.sh','create-pipelines.sh')
-bash -c "./create-pipelines.sh http://localhost:8080/ admin $JENKINS_ADMIN_PASS"
+#(New-Object System.Net.WebClient).DownloadFile('https://raw.githubusercontent.com/devonfw/my-thai-star/develop/jenkins/create-pipelines.sh','create-pipelines.sh')
+#git clone https://github.com/devonfw/my-thai-star.git
+#docker cp create-pipelines.sh ${JENKINS_NAME}:/
+#bash -c "sh ./create-pipelines.sh localhost:8080 admin $JENKINS_ADMIN_PASS"
+#docker exec -it JENKINS /bin/bash -c "./create-pipelines.sh localhost:8080 admin $JENKINS_ADMIN_PASS"
 
