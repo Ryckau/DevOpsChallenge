@@ -12,6 +12,17 @@ else{
 }
 #TODO : test installation OK
 
+#Installation of curl
+#TODO Check if curl installed
+$testcurl = powershell curl --version
+if(-not($testcurl)){
+    Write-Output "Seems Curl is not installed, installing now"
+    choco install curl -y
+}
+else{
+    Write-Output "$testcurl is already installed"
+}
+#TODO : test installation OK
 
 #Installation of git
 $testgit = powershell git --version
